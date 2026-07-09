@@ -1,0 +1,25 @@
+{
+  "name": "rafael-engineering-hub",
+  "version": "1.0.0",
+  "description": "Personal engineering hub featuring projects, certifications, technical skills, and a continuous learning journey in Software Engineering.",
+  "scripts": {
+    "dev": "parcel src/index.html src/projetos.html src/certificados.html --no-cache",
+    "build": "parcel build src/index.html src/projetos.html src/certificados.html --no-cache",
+    "optimize:images": "node tools/optimize-images.js",
+    "gulp": "gulp"
+  },
+  "keywords": [],
+  "author": "Rafael_Zaparolli",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "gulp": "^5.0.1",
+    "parcel": "^2.16.4",
+    "sharp": "^0.35.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1"
+  }
+}

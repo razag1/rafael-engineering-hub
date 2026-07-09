@@ -1,0 +1,42 @@
+.about-window {
+    &__photo {
+        width: 100%;
+        max-width: 320px;
+        display: block;
+        border: 2px solid var(--color-primary);
+        border-radius: 0;
+    }
+
+    &__eyebrow {
+        margin-bottom: 8px;
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    &__subtitle {
+        margin-bottom: 16px;
+        color: var(--color-primary);
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__text {
+        max-width: 620px;
+        color: var(--color-muted);
+        line-height: 1.7;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 24px 0;
+    }
+}

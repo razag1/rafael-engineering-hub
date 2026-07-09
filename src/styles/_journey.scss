@@ -1,0 +1,27 @@
+.journey {
+    height: auto;
+
+    .window__body {
+        min-height: 378px;
+        display: flex;
+        align-items: center;
+        background-color: var(--color-surface);
+    }
+
+    &__timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    &__year {
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+}

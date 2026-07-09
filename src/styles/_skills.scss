@@ -1,0 +1,33 @@
+.skills {
+    margin-top: 24px;
+
+    &__title {
+        margin-bottom: 12px;
+        color: var(--color-primary);
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid var(--color-primary);
+        border-radius: 0;
+        background-color: var(--color-surface);
+        font-weight: 600;
+        box-shadow: 3px 3px 0 rgba(47, 79, 62, 0.18);
+    }
+
+    &__icon {
+        font-size: 18px;
+    }
+}

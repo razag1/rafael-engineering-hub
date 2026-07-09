@@ -1,0 +1,121 @@
+.projects-preview {
+    height: auto;
+
+    .window__body {
+        min-height: 378px;
+        padding: 32px 40px;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-surface);
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+    }
+}
+
+.project-card {
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-surface);
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+        border: none;
+        border-bottom: 2px solid var(--color-primary);
+        background-color: transparent;
+        color: var(--color-primary);
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+    &__title {
+        font-size: 18px;
+    }
+
+    &__icon {
+        font-size: 24px;
+    }
+
+    &__body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 16px;
+        transition: max-height .3s ease, padding .3s ease;
+    }
+
+    &--open {
+        .project-card__body {
+            max-height: 900px;
+            padding: 16px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 16px;
+    }
+
+    &__thumbnail {
+        width: 180px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid var(--color-border);
+        flex-shrink: 0;
+    }
+
+    &__info {
+        flex: 1;
+    }
+
+    &__text {
+        margin-bottom: 12px;
+        line-height: 1.6;
+        color: var(--color-muted);
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 13px;
+        color: var(--color-muted);
+
+        span {
+            padding: 4px 8px;
+            border: 1px solid var(--color-border);
+        }
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+
+        span {
+            padding: 6px 10px;
+            border: 1px solid var(--color-border);
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+
+    &__link {
+        width: fit-content;
+    }
+}

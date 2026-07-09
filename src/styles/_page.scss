@@ -1,0 +1,35 @@
+.page {
+    min-height: 100vh;
+    padding: 48px;
+    overflow-x: hidden;
+}
+
+.page__container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.dashboard-row {
+    margin-bottom: 32px;
+}
+
+@media (min-width: 992px) {
+    .dashboard-row {
+        align-items: stretch;
+    }
+
+    .dashboard-row > [class^="col-"],
+    .dashboard-row > [class*=" col-"] {
+        display: flex;
+    }
+
+    .dashboard-row .window {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    .dashboard-row .window__body {
+        min-height: 378px;
+    }
+}

@@ -1,0 +1,116 @@
+.btn-primary {
+    background-color: #3f6f58;
+    border-color: #3f6f58;
+    color: var(--color-bg);
+
+    &:hover {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+
+    &:active {
+        background-color: #4f8067 !important;
+        border-color: var(--color-focus) !important;
+        color: var(--color-bg) !important;
+        box-shadow: none !important;
+    }
+
+    &:focus:not(:focus-visible) {
+        background-color: #3f6f58 !important;
+        border-color: #3f6f58 !important;
+        color: var(--color-bg) !important;
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    &:focus-visible {
+        box-shadow: none !important;
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
+
+.btn-outline-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+
+    &:hover {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+
+    &:active {
+        background-color: rgba(143, 184, 157, 0.18) !important;
+        border-color: var(--color-focus) !important;
+        color: var(--color-primary) !important;
+        box-shadow: none !important;
+    }
+
+    &:focus:not(:focus-visible) {
+        background-color: transparent !important;
+        border-color: var(--color-primary) !important;
+        color: var(--color-primary) !important;
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    &:focus-visible {
+        box-shadow: none !important;
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
+
+.project-card__header {
+    &:active {
+        background-color: rgba(143, 184, 157, 0.12) !important;
+    }
+
+    &:focus:not(:focus-visible) {
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    &:focus-visible {
+        box-shadow: none !important;
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
+
+.system-card__header {
+    &:active {
+        background-color: var(--color-primary) !important;
+        color: var(--color-bg) !important;
+    }
+
+    &:focus:not(:focus-visible) {
+        background-color: var(--color-primary) !important;
+        color: var(--color-bg) !important;
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    &:focus-visible {
+        background-color: var(--color-primary) !important;
+        color: var(--color-bg) !important;
+        box-shadow: none !important;
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
+
+.window__button {
+    &:focus:not(:focus-visible) {
+        box-shadow: none !important;
+        outline: none;
+    }
+
+    &:focus-visible {
+        box-shadow: none !important;
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+    }
+}
