@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta
+        name="description"
+        content="Project archive for Rafael Engineering Hub, combining portfolio data with public GitHub information."
+    >
+
+    <title>Projects | Rafael Engineering Hub</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="stylesheet" href="./styles/main.scss">
+
+    <script type="module" src="./scripts/main.js" defer></script>
+</head>
+
+<body>
+    <main class="page">
+        <div class="page__container">
+            <div class="hub-toolbar hub-toolbar--with-navigation">
+                <a href="./index.html" class="btn btn-outline-primary" data-i18n="buttons.backToHome">
+                    Back to Home
+                </a>
+                <button
+                    class="hub-toolbar__button"
+                    type="button"
+                    id="language-toggle"
+                    aria-label="Change language"
+                >
+                    language.ini: EN
+                </button>
+            </div>
+
+            <section class="window projects-archive">
+                <div class="window__header">
+                    <span class="window__title">projects.exe</span>
+
+                    <div class="window__actions">
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                        <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
+                    </div>
+                </div>
+
+                <div class="window__body">
+                    <p class="projects-archive__intro" data-i18n="projectsArchive.intro">
+                        A curated list of projects combining local portfolio data with public GitHub repository information.
+                    </p>
+
+                    <div class="projects-preview__list projects-archive__list" data-projects-list></div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

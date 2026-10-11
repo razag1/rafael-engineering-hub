@@ -1,8 +1,10 @@
 .about-window {
     &__photo {
-        width: 100%;
-        max-width: 320px;
         display: block;
+        width: min(100%, 320px);
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
         border: 2px solid var(--color-primary);
         border-radius: 0;
     }
@@ -15,6 +17,7 @@
 
     &__title {
         margin-bottom: 8px;
+        font-family: var(--font-heading);
         font-size: 40px;
         font-weight: 800;
         line-height: 1.1;
@@ -23,6 +26,7 @@
     &__subtitle {
         margin-bottom: 16px;
         color: var(--color-primary);
+        font-family: var(--font-heading);
         font-size: 20px;
         font-weight: 700;
     }

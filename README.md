@@ -19,6 +19,7 @@ The project is designed as a **retro-inspired engineering hub**, using a visual 
 - [Technologies](#-technologies)
 - [Features](#-features)
 - [Project Structure](#-project-structure)
+- [Projects Data Structure](#projects-data-structure)
 - [Running Locally](#-running-locally)
 - [Image Optimization](#-image-optimization)
 - [Status & Roadmap](#-status--roadmap)
@@ -103,6 +104,27 @@ src/
   certificados.html
 tools/
   optimize-images.js
+```
+
+## Projects Data Structure
+
+Projects are organized with metadata in:
+
+```txt
+src/scripts/data/projects.js
+```
+
+Project images should follow this structure:
+
+```txt
+src/assets/projects/project-id/preview.webp
+src/assets/projects/project-id/preview.png
+```
+
+Each project entry should include:
+
+```txt
+id, title, status, year, stack, topics, summary, image, repositoryUrl, demoUrl
 ```
 
 ## 🚀 Running Locally

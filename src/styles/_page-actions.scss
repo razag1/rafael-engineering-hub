@@ -1,0 +1,13 @@
+.page-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+
+    &--top {
+        margin-bottom: 24px;
+    }
+
+    &--bottom {
+        margin-top: 24px;
+    }
+}

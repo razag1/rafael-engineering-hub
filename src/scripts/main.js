@@ -1,56 +1,25 @@
-function setupAccordion(cardSelector, openClass, headerSelector, iconSelector) {
-    const cards = document.querySelectorAll(cardSelector);
+import { setupAccordion } from "./modules/accordion.js";
+import { setupClickBlur } from "./modules/click-blur.js";
+import { setupLanguageToggle } from "./modules/language.js";
+import { setupCertificateArchive } from "./modules/certificate-archive.js";
+import { setupCertificateModal } from "./modules/certificate-modal.js";
+import { setupProjectArchive } from "./modules/project-archive.js";
 
-    cards.forEach(function (card) {
-        const button = card.querySelector(headerSelector);
-        const icon = card.querySelector(iconSelector);
+async function init() {
+    setupLanguageToggle();
+    setupCertificateArchive();
+    setupCertificateModal();
 
-        if (!button || !icon) {
-            return;
-        }
+    await setupProjectArchive();
 
-        button.addEventListener("click", function () {
-            card.classList.toggle(openClass);
-
-            if (card.classList.contains(openClass)) {
-                icon.textContent = "-";
-            } else {
-                icon.textContent = "+";
-            }
-
-            button.blur();
-        });
-    });
-}
-
-function setupClickBlur() {
-    const clickableElements = document.querySelectorAll(
-        ".btn, .window__button"
+    setupAccordion(
+        ".system-card",
+        "system-card--open",
+        ".system-card__header",
+        ".system-card__icon"
     );
 
-    clickableElements.forEach(function (element) {
-        element.addEventListener("mouseup", function () {
-            element.blur();
-        });
-
-        element.addEventListener("touchend", function () {
-            element.blur();
-        });
-    });
+    setupClickBlur();
 }
 
-setupAccordion(
-    ".project-card",
-    "project-card--open",
-    ".project-card__header",
-    ".project-card__icon"
-);
-
-setupAccordion(
-    ".system-card",
-    "system-card--open",
-    ".system-card__header",
-    ".system-card__icon"
-);
-
-setupClickBlur();
+init();

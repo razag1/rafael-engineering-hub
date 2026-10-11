@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
+    <meta
+        name="description"
+        content="Retro-inspired personal portfolio showcasing projects, certificates and my software engineering journey."
+    >
+    <meta property="og:title" content="Rafael Engineering Hub">
+    <meta
+        property="og:description"
+        content="Retro-inspired personal portfolio showcasing projects, certificates and my software engineering journey."
+    >
+    <meta property="og:type" content="website">
 
     <title>Rafael Engineering Hub</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link rel="stylesheet" href="./styles/main.scss">
 
     <script type="module" src="./scripts/main.js" defer></script>
@@ -17,14 +27,25 @@
     <main class="page">
         <div class="page__container">
 
+            <div class="hub-toolbar">
+                <button
+                    class="hub-toolbar__button"
+                    type="button"
+                    id="language-toggle"
+                    aria-label="Change language"
+                >
+                    language.ini: EN
+                </button>
+            </div>
+
             <section class="window about-window">
                 <div class="window__header">
                     <span class="window__title">profile.exe</span>
 
                     <div class="window__actions">
-                        <button class="window__button">_</button>
-                        <button class="window__button">□</button>
-                        <button class="window__button window__button--close">×</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                        <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
                     </div>
                 </div>
 
@@ -46,27 +67,31 @@
 
                                     <ul class="system-card__list">
                                         <li class="system-card__item">
-                                            <span class="system-card__label">Location:</span>
+                                            <span class="system-card__label" data-i18n="system.location">Location:</span>
                                             <span class="system-card__value">São Bernardo do Campo, SP</span>
                                         </li>
 
                                         <li class="system-card__item">
-                                            <span class="system-card__label">Current:</span>
-                                            <span class="system-card__value">EBAC Full Stack Python</span>
+                                            <span class="system-card__label" data-i18n="system.current">Current:</span>
+                                            <span class="system-card__value" data-i18n="system.currentValue">
+                                                Software Engineering + EBAC Full Stack Python
+                                            </span>
                                         </li>
 
                                         <li class="system-card__item">
-                                            <span class="system-card__label">Next:</span>
-                                            <span class="system-card__value">Software Engineering</span>
+                                            <span class="system-card__label" data-i18n="system.next">Next:</span>
+                                            <span class="system-card__value" data-i18n="system.nextValue">
+                                                Backend Development Internship
+                                            </span>
                                         </li>
 
                                         <li class="system-card__item">
-                                            <span class="system-card__label">Focus:</span>
-                                            <span class="system-card__value">Backend Development</span>
+                                            <span class="system-card__label" data-i18n="system.focus">Focus:</span>
+                                            <span class="system-card__value" data-i18n="system.focusValue">Backend Development</span>
                                         </li>
 
                                         <li class="system-card__item">
-                                            <span class="system-card__label">OS:</span>
+                                            <span class="system-card__label" data-i18n="system.os">OS:</span>
                                             <span class="system-card__value">Linux</span>
                                         </li>
                                     </ul>
@@ -75,73 +100,73 @@
                         </div>
 
                         <div class="col-lg-8">
-                            <p class="about-window__eyebrow">
-                                Full Stack Python Student
+                            <p class="about-window__eyebrow" data-i18n="profile.eyebrow">
+                                Software Engineering Student
                             </p>
 
                             <h1 class="about-window__title">
                                 Rafael Zaparolli
                             </h1>
 
-                            <p class="about-window__subtitle">
-                                Future Software Engineer focused on Backend Development.
+                            <p class="about-window__subtitle" data-i18n="profile.subtitle">
+                                Software Engineering student focused on Backend Development.
                             </p>
 
-                            <p class="about-window__text">
-                                Currently studying Full Stack Python at EBAC and preparing to start
-                                Software Engineering. I am building a solid foundation in programming,
-                                databases and scalable systems.
+                            <p class="about-window__text" data-i18n="profile.text">
+                                Currently studying Software Engineering and Full Stack Python at EBAC.
+                                I am building a solid foundation in programming, databases and scalable
+                                backend systems.
                             </p>
 
                             <div class="about-window__buttons">
-                                <a href="https://github.com/razag1" class="btn btn-primary">GitHub</a>
-                                <a href="https://www.linkedin.com/in/rafael-zaparolli-de-agustini-09a8871a9/" class="btn btn-outline-primary">LinkedIn</a>
-                                <a href="#" class="btn btn-outline-primary">Resume</a>
+                                <a href="https://github.com/razag1" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">GitHub</a>
+                                <a href="https://www.linkedin.com/in/rafael-zaparolli-de-agustini-09a8871a9/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">LinkedIn</a>
+                                <a href="./assets/resume/rafael-zaparolli-curriculo.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary" data-i18n="buttons.resume">Resume</a>
                             </div>
 
                             <div class="skills">
-                                <h2 class="skills__title">
+                                <h2 class="skills__title" data-i18n="skills.title">
                                     Technologies
                                 </h2>
 
                                 <div class="skills__list">
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-python-plain colored"></i>
+                                        <i class="skills__icon devicon-python-plain colored" aria-hidden="true"></i>
                                         Python
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-mysql-plain colored"></i>
+                                        <i class="skills__icon devicon-mysql-plain colored" aria-hidden="true"></i>
                                         SQL
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-html5-plain colored"></i>
+                                        <i class="skills__icon devicon-html5-plain colored" aria-hidden="true"></i>
                                         HTML
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-css3-plain colored"></i>
+                                        <i class="skills__icon devicon-css3-plain colored" aria-hidden="true"></i>
                                         CSS
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-javascript-plain colored"></i>
+                                        <i class="skills__icon devicon-javascript-plain colored" aria-hidden="true"></i>
                                         JavaScript
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-git-plain colored"></i>
+                                        <i class="skills__icon devicon-git-plain colored" aria-hidden="true"></i>
                                         Git
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-github-original colored"></i>
+                                        <i class="skills__icon devicon-github-original colored" aria-hidden="true"></i>
                                         GitHub
                                     </span>
 
                                     <span class="skills__item">
-                                        <i class="skills__icon devicon-linux-plain colored"></i>
+                                        <i class="skills__icon devicon-linux-plain colored" aria-hidden="true"></i>
                                         Linux
                                     </span>
                                 </div>
@@ -158,9 +183,9 @@
                             <span class="window__title">journey.log</span>
 
                             <div class="window__actions">
-                                <button class="window__button">_</button>
-                                <button class="window__button">□</button>
-                                <button class="window__button window__button--close">×</button>
+                                <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                                <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                                <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
                             </div>
                         </div>
 
@@ -168,22 +193,22 @@
                             <div class="journey__timeline">
                                 <div class="journey__step">
                                     <span class="journey__year">2020 - 2021</span>
-                                    <h3 class="journey__title">Computer Science</h3>
+                                    <h3 class="journey__title" data-i18n="journey.computerScience">Computer Science</h3>
                                 </div>
 
                                 <div class="journey__step">
                                     <span class="journey__year">2024 - Present</span>
-                                    <h3 class="journey__title">Full Stack Python</h3>
+                                    <h3 class="journey__title" data-i18n="journey.fullStackPython">Full Stack Python</h3>
                                 </div>
 
                                 <div class="journey__step">
-                                    <span class="journey__year">2027</span>
-                                    <h3 class="journey__title">Software Engineering</h3>
+                                    <span class="journey__year">2026 - Present</span>
+                                    <h3 class="journey__title" data-i18n="journey.softwareEngineering">Software Engineering</h3>
                                 </div>
 
                                 <div class="journey__step">
                                     <span class="journey__year">Goal</span>
-                                    <h3 class="journey__title">Backend Architect</h3>
+                                    <h3 class="journey__title" data-i18n="journey.backendArchitect">Backend Architect</h3>
                                 </div>
                             </div>
                         </div>
@@ -196,138 +221,17 @@
                             <span class="window__title">projects.exe</span>
 
                             <div class="window__actions">
-                                <button class="window__button">_</button>
-                                <button class="window__button">□</button>
-                                <button class="window__button window__button--close">×</button>
+                                <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                                <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                                <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
                             </div>
                         </div>
 
                         <div class="window__body">
-                            <div class="projects-preview__list">
-                                <article class="project-card">
-                                    <button class="project-card__header" type="button">
-                                        <span class="project-card__title">Aurora Café</span>
-                                        <span class="project-card__icon">+</span>
-                                    </button>
-
-                                    <div class="project-card__body">
-                                        <div class="project-card__content">
-                                            <img
-                                                src="./assets/preview/aurora-cafe-preview.webp"
-                                                alt="Aurora Café"
-                                                class="project-card__thumbnail"
-                                            >
-
-                                            <div class="project-card__info">
-                                                <p class="project-card__text">
-                                                    Responsive landing page built with Bootstrap, focused on UI,
-                                                    responsiveness and component organization.
-                                                </p>
-
-                                                <div class="project-card__meta">
-                                                    <span>Status: Completed</span>
-                                                    <span>Stack: Bootstrap</span>
-                                                    <span>Year: 2025</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="project-card__tags">
-                                            <span>HTML</span>
-                                            <span>CSS</span>
-                                            <span>Bootstrap</span>
-                                            <span>JavaScript</span>
-                                        </div>
-
-                                        <a href="#" class="btn btn-outline-primary project-card__link">
-                                            View Project
-                                        </a>
-                                    </div>
-                                </article>
-
-                                <article class="project-card">
-                                    <button class="project-card__header" type="button">
-                                        <span class="project-card__title">CipherPy</span>
-                                        <span class="project-card__icon">+</span>
-                                    </button>
-
-                                    <div class="project-card__body">
-                                        <div class="project-card__content">
-                                            <img
-                                                src="./assets/preview/cipherpy-preview.webp"
-                                                alt="CipherPy"
-                                                class="project-card__thumbnail"
-                                            >
-
-                                            <div class="project-card__info">
-                                                <p class="project-card__text">
-                                                    Python encryption project focused on logic,
-                                                    modularization and algorithm development.
-                                                </p>
-
-                                                <div class="project-card__meta">
-                                                    <span>Status: In Progress</span>
-                                                    <span>Stack: Python</span>
-                                                    <span>Year: 2025</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="project-card__tags">
-                                            <span>Python</span>
-                                            <span>CLI</span>
-                                            <span>Logic</span>
-                                        </div>
-
-                                        <a href="#" class="btn btn-outline-primary project-card__link">
-                                            View Project
-                                        </a>
-                                    </div>
-                                </article>
-
-                                <article class="project-card">
-                                    <button class="project-card__header" type="button">
-                                        <span class="project-card__title">GitHub Finder</span>
-                                        <span class="project-card__icon">+</span>
-                                    </button>
-
-                                    <div class="project-card__body">
-                                        <div class="project-card__content">
-                                            <img
-                                                src="./assets/preview/github-finder-preview.webp"
-                                                alt="GitHub Finder"
-                                                class="project-card__thumbnail"
-                                            >
-
-                                            <div class="project-card__info">
-                                                <p class="project-card__text">
-                                                    JavaScript project that consumes the GitHub API
-                                                    and displays public profile information.
-                                                </p>
-
-                                                <div class="project-card__meta">
-                                                    <span>Status: Completed</span>
-                                                    <span>Stack: API</span>
-                                                    <span>Year: 2025</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="project-card__tags">
-                                            <span>JavaScript</span>
-                                            <span>API</span>
-                                            <span>GitHub</span>
-                                        </div>
-
-                                        <a href="#" class="btn btn-outline-primary project-card__link">
-                                            View Project
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
+                            <div class="projects-preview__list" data-featured-projects></div>
 
                             <div class="projects-preview__footer">
-                                <a href="projetos.html" class="btn btn-primary">
+                                <a href="projetos.html" class="btn btn-primary" data-i18n="buttons.viewAllProjects">
                                     View All Projects
                                 </a>
                             </div>
@@ -341,9 +245,9 @@
                     <span class="window__title">certificates.exe</span>
 
                     <div class="window__actions">
-                        <button class="window__button">_</button>
-                        <button class="window__button">□</button>
-                        <button class="window__button window__button--close">×</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                        <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
                     </div>
                 </div>
 
@@ -352,7 +256,7 @@
                         <article class="certificate-card">
                             <span class="certificate-card__issuer">TIM Tec</span>
 
-                            <h3 class="certificate-card__title">
+                            <h3 class="certificate-card__title" data-i18n="certificates.timtecPython.title">
                                 Desenvolvimento com Python
                             </h3>
 
@@ -364,22 +268,31 @@
                                 src="./assets/certificates/timtec-python.webp"
                                 alt="Certificado Desenvolvimento com Python - TIM Tec"
                                 class="certificate-card__image"
+                                loading="lazy"
+                                decoding="async"
+                                width="260"
+                                height="160"
                             >
 
-                            <a
-                                href="./assets/certificates/timtec-python.png"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
                                 class="btn btn-outline-primary certificate-card__link"
+                                type="button"
+                                data-certificate-modal
+                                data-certificate-title="Desenvolvimento com Python"
+                                data-certificate-issuer="TIM Tec"
+                                data-certificate-hours="40h"
+                                data-certificate-date="2020"
+                                data-certificate-image="./assets/certificates/timtec-python.webp"
+                                data-i18n="buttons.viewCertificate"
                             >
                                 View Certificate
-                            </a>
+                            </button>
                         </article>
 
                         <article class="certificate-card">
                             <span class="certificate-card__issuer">Alura</span>
 
-                            <h3 class="certificate-card__title">
+                            <h3 class="certificate-card__title" data-i18n="certificates.aluraSqlIntro.title">
                                 Introdução ao SQL com MySQL
                             </h3>
 
@@ -391,22 +304,31 @@
                                 src="./assets/certificates/alura-sql-introducao.webp"
                                 alt="Certificado Introdução ao SQL com MySQL - Alura"
                                 class="certificate-card__image"
+                                loading="lazy"
+                                decoding="async"
+                                width="260"
+                                height="160"
                             >
 
-                            <a
-                                href="./assets/certificates/alura-sql-introducao.png"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
                                 class="btn btn-outline-primary certificate-card__link"
+                                type="button"
+                                data-certificate-modal
+                                data-certificate-title="Introdução ao SQL com MySQL"
+                                data-certificate-issuer="Alura"
+                                data-certificate-hours="12h"
+                                data-certificate-date="2021"
+                                data-certificate-image="./assets/certificates/alura-sql-introducao.webp"
+                                data-i18n="buttons.viewCertificate"
                             >
                                 View Certificate
-                            </a>
+                            </button>
                         </article>
 
                         <article class="certificate-card">
                             <span class="certificate-card__issuer">SENAI</span>
 
-                            <h3 class="certificate-card__title">
+                            <h3 class="certificate-card__title" data-i18n="certificates.senaiLogic.title">
                                 Lógica de Programação
                             </h3>
 
@@ -418,21 +340,30 @@
                                 src="./assets/certificates/senai-logica.webp"
                                 alt="Certificado Lógica de Programação - SENAI"
                                 class="certificate-card__image"
+                                loading="lazy"
+                                decoding="async"
+                                width="260"
+                                height="160"
                             >
 
-                            <a
-                                href="./assets/certificates/senai-logica.png"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <button
                                 class="btn btn-outline-primary certificate-card__link"
+                                type="button"
+                                data-certificate-modal
+                                data-certificate-title="Lógica de Programação"
+                                data-certificate-issuer="SENAI"
+                                data-certificate-hours="14h"
+                                data-certificate-date="2020"
+                                data-certificate-image="./assets/certificates/senai-logica.webp"
+                                data-i18n="buttons.viewCertificate"
                             >
                                 View Certificate
-                            </a>
+                            </button>
                         </article>
                     </div>
 
                     <div class="certificates-preview__footer">
-                        <a href="certificados.html" class="btn btn-primary">
+                        <a href="certificados.html" class="btn btn-primary" data-i18n="buttons.viewAllCertificates">
                             View All Certificates
                         </a>
                     </div>
@@ -441,5 +372,69 @@
 
         </div>
     </main>
+
+    <div class="certificate-modal" id="certificate-modal" aria-hidden="true">
+        <div class="certificate-modal__overlay" data-certificate-close></div>
+
+        <section
+            class="window certificate-modal__window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="certificate-modal-title"
+        >
+            <div class="window__header">
+                <h2 class="window__title" id="certificate-modal-title">
+                    certificate-viewer.exe
+                </h2>
+
+                <div class="window__actions">
+                    <button
+                        class="window__button window__button--close"
+                        type="button"
+                        data-certificate-close
+                        aria-label="Close certificate modal"
+                    >
+                        ×
+                    </button>
+                </div>
+            </div>
+
+            <div class="window__body certificate-modal__body">
+                <div class="certificate-modal__preview">
+                    <div class="certificate-modal__viewport" data-certificate-viewport>
+                        <img
+                            alt=""
+                            class="certificate-modal__image"
+                            id="certificate-modal-image"
+                        >
+                    </div>
+
+                    <div class="certificate-modal__controls" aria-label="Certificate zoom controls">
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-out>-</button>
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-reset>100%</button>
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-in>+</button>
+                    </div>
+
+                </div>
+
+                <div class="certificate-modal__info">
+                    <p class="certificate-modal__issuer" id="certificate-modal-issuer"></p>
+                    <h3 class="certificate-modal__name" id="certificate-modal-name"></h3>
+
+                    <dl class="certificate-modal__details">
+                        <div>
+                            <dt data-i18n="certificateModal.hours">Hours</dt>
+                            <dd id="certificate-modal-hours"></dd>
+                        </div>
+
+                        <div>
+                            <dt data-i18n="certificateModal.date">Date</dt>
+                            <dd id="certificate-modal-date"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

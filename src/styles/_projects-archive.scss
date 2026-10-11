@@ -1,0 +1,44 @@
+.projects-archive {
+    &__intro {
+        max-width: 720px;
+        margin-bottom: 24px;
+        color: var(--color-muted);
+        line-height: 1.7;
+    }
+
+    &__list.projects-preview__list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .project-card--grid {
+        height: 100%;
+
+        .project-card__body,
+        .project-card__content {
+            height: 100%;
+        }
+
+        .project-card__layout {
+            grid-template-columns: 1fr;
+        }
+
+        .project-card__image {
+            height: 180px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .projects-archive {
+        &__list.projects-preview__list {
+            grid-template-columns: 1fr;
+        }
+
+        .project-card--grid .project-card__image {
+            height: 160px;
+        }
+    }
+}

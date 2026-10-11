@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta
+        name="description"
+        content="Certificate archive for Rafael Engineering Hub, featuring programming and database courses."
+    >
+
+    <title>Certificates | Rafael Engineering Hub</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="stylesheet" href="./styles/main.scss">
+
+    <script type="module" src="./scripts/main.js" defer></script>
+</head>
+
+<body>
+    <main class="page">
+        <div class="page__container">
+            <div class="hub-toolbar hub-toolbar--with-navigation">
+                <a href="./index.html" class="btn btn-outline-primary" data-i18n="buttons.backToHome">
+                    Back to Home
+                </a>
+                <button
+                    class="hub-toolbar__button"
+                    type="button"
+                    id="language-toggle"
+                    aria-label="Change language"
+                >
+                    language.ini: EN
+                </button>
+            </div>
+
+            <section class="window certificates-archive" data-certificate-archive>
+                <div class="window__header">
+                    <span class="window__title">certificates.exe</span>
+
+                    <div class="window__actions">
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">_</button>
+                        <button class="window__button" type="button" tabindex="-1" aria-hidden="true">□</button>
+                        <button class="window__button window__button--close" type="button" tabindex="-1" aria-hidden="true">×</button>
+                    </div>
+                </div>
+
+                <div class="window__body">
+                    <p class="certificates-archive__intro" data-i18n="certificatesArchive.intro">
+                        A curated archive of courses and certificates related to programming,
+                        databases, web development and software engineering foundations.
+                    </p>
+
+                    <form class="certificate-filters" aria-label="Certificate filters">
+                        <label class="certificate-filters__field">
+                            <span data-i18n="certificatesArchive.year">Year</span>
+                            <select data-filter-year>
+                                <option value="all" data-i18n="certificatesArchive.allYears">All years</option>
+                            </select>
+                        </label>
+
+                        <label class="certificate-filters__field">
+                            <span data-i18n="certificatesArchive.institution">Institution</span>
+                            <select data-filter-issuer>
+                                <option value="all" data-i18n="certificatesArchive.allInstitutions">All institutions</option>
+                            </select>
+                        </label>
+
+                        <label class="certificate-filters__field">
+                            <span data-i18n="certificatesArchive.topic">Area / tool</span>
+                            <select data-filter-topic>
+                                <option value="all" data-i18n="certificatesArchive.allTopics">All areas and tools</option>
+                            </select>
+                        </label>
+                    </form>
+
+                    <p class="certificates-archive__count" data-certificates-count></p>
+
+                    <p class="certificates-archive__empty" data-certificates-empty data-i18n="certificatesArchive.empty" hidden>
+                        No certificates found with the selected filters.
+                    </p>
+
+                    <div class="certificates-preview__list certificates-archive__list" data-certificates-list></div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="certificate-modal" id="certificate-modal" aria-hidden="true">
+        <div class="certificate-modal__overlay" data-certificate-close></div>
+
+        <section
+            class="window certificate-modal__window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="certificate-modal-title"
+        >
+            <div class="window__header">
+                <h2 class="window__title" id="certificate-modal-title">
+                    certificate-viewer.exe
+                </h2>
+
+                <div class="window__actions">
+                    <button
+                        class="window__button window__button--close"
+                        type="button"
+                        data-certificate-close
+                        aria-label="Close certificate modal"
+                    >
+                        ×
+                    </button>
+                </div>
+            </div>
+
+            <div class="window__body certificate-modal__body">
+                <div class="certificate-modal__preview">
+                    <div class="certificate-modal__viewport" data-certificate-viewport>
+                        <img
+                            alt=""
+                            class="certificate-modal__image"
+                            id="certificate-modal-image"
+                        >
+                    </div>
+
+                    <div class="certificate-modal__controls" aria-label="Certificate zoom controls">
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-out>-</button>
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-reset>100%</button>
+                        <button type="button" class="btn btn-outline-primary" data-certificate-zoom-in>+</button>
+                    </div>
+
+                </div>
+
+                <div class="certificate-modal__info">
+                    <p class="certificate-modal__issuer" id="certificate-modal-issuer"></p>
+                    <h3 class="certificate-modal__name" id="certificate-modal-name"></h3>
+
+                    <dl class="certificate-modal__details">
+                        <div>
+                            <dt data-i18n="certificateModal.hours">Hours</dt>
+                            <dd id="certificate-modal-hours"></dd>
+                        </div>
+
+                        <div>
+                            <dt data-i18n="certificateModal.date">Date</dt>
+                            <dd id="certificate-modal-date"></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

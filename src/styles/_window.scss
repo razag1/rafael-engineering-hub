@@ -23,6 +23,14 @@
         gap: 4px;
     }
 
+    &__title {
+        margin: 0;
+        font-family: var(--font-heading);
+        font-size: inherit;
+        line-height: 1;
+        font-weight: 700;
+    }
+
     &__button {
         width: 24px;
         height: 24px;
