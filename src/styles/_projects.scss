@@ -56,7 +56,9 @@
         max-height: 0;
         overflow: hidden;
         padding: 0 16px;
-        transition: max-height .3s ease, padding .3s ease;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
     }
 
     &--open {

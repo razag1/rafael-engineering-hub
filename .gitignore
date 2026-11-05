@@ -1,5 +1,9 @@
 node_modules/
 dist/
 .parcel-cache/
+.npm-cache/
+coverage/
 .env
+.env.*
+!.env.example
 .DS_Store

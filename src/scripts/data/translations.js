@@ -2,7 +2,8 @@ export const translations = {
     en: {
         "profile.eyebrow": "Software Engineering Student",
         "profile.subtitle": "Software Engineering student focused on Backend Development.",
-        "profile.text": "Currently studying Software Engineering and Full Stack Python at EBAC. I am building a solid foundation in programming, databases and scalable backend systems.",
+        "profile.text":
+            "Currently studying Software Engineering and Full Stack Python at EBAC. I am building a solid foundation in programming, databases and scalable backend systems.",
 
         "buttons.resume": "Resume",
         "buttons.viewProject": "View Project",
@@ -12,6 +13,8 @@ export const translations = {
         "buttons.backToHome": "Back to Home",
         "buttons.github": "GitHub",
         "buttons.liveDemo": "Live Demo",
+        "accessibility.skipToContent": "Skip to main content",
+        "accessibility.closeCertificateModal": "Close certificate viewer",
 
         "skills.title": "Technologies",
 
@@ -24,9 +27,12 @@ export const translations = {
         "system.focusValue": "Backend Development",
         "system.os": "OS:",
 
-        "projects.aurora.text": "Responsive landing page built with Bootstrap, focused on UI, responsiveness and component organization.",
-        "projects.cipherpy.text": "Python encryption project focused on logic, modularization and algorithm development.",
-        "projects.githubFinder.text": "JavaScript project that consumes the GitHub API and displays public profile information.",
+        "projects.aurora.text":
+            "Responsive landing page built with Bootstrap, focused on UI, responsiveness and component organization.",
+        "projects.cipherpy.text":
+            "Python encryption project focused on logic, modularization and algorithm development.",
+        "projects.githubFinder.text":
+            "JavaScript project that consumes the GitHub API and displays public profile information.",
 
         "projects.status.completed": "Status: Completed",
         "projects.status.progress": "Status: In Progress",
@@ -34,7 +40,8 @@ export const translations = {
         "projects.stack.python": "Stack: Python",
         "projects.stack.api": "Stack: API",
         "projects.year": "Year: 2025",
-        "projectsArchive.intro": "A curated list of projects combining local portfolio data with public GitHub repository information.",
+        "projectsArchive.intro":
+            "A curated list of projects combining local portfolio data with public GitHub repository information.",
 
         "journey.computerScience": "Computer Science",
         "journey.fullStackPython": "Full Stack Python",
@@ -43,12 +50,14 @@ export const translations = {
 
         "certificates.timtecPython.title": "Python Development",
         "certificates.aluraSqlIntro.title": "Introduction to SQL with MySQL",
-        "certificates.senaiLogic.title": "Programming Logic",
+        "certificates.aluraAiImmersion.title":
+            "Software Engineering Immersion: Development in the AI Era",
 
         "certificateModal.hours": "Hours",
         "certificateModal.date": "Date",
 
-        "certificatesArchive.intro": "A curated archive of courses and certificates related to programming, databases, web development and software engineering foundations.",
+        "certificatesArchive.intro":
+            "A curated archive of courses and certificates related to programming, databases, web development and software engineering foundations.",
         "certificatesArchive.year": "Year",
         "certificatesArchive.institution": "Institution",
         "certificatesArchive.topic": "Area / tool",
@@ -58,13 +67,15 @@ export const translations = {
         "certificatesArchive.toConfirm": "To confirm",
         "certificatesArchive.certificatesFound": "certificate(s) found.",
         "certificatesArchive.viewCertificate": "View Certificate",
-        "certificatesArchive.empty": "No certificates found with the selected filters."
+        "certificatesArchive.empty": "No certificates found with the selected filters.",
     },
 
     pt: {
         "profile.eyebrow": "Estudante de Engenharia de Software",
-        "profile.subtitle": "Estudante de Engenharia de Software com foco em Desenvolvimento Backend.",
-        "profile.text": "Atualmente curso Engenharia de Software e Full Stack Python na EBAC. Estou construindo uma base sólida em programação, bancos de dados e sistemas backend escaláveis.",
+        "profile.subtitle":
+            "Estudante de Engenharia de Software com foco em Desenvolvimento Backend.",
+        "profile.text":
+            "Atualmente curso Engenharia de Software e Full Stack Python na EBAC. Estou construindo uma base sólida em programação, bancos de dados e sistemas backend escaláveis.",
 
         "buttons.resume": "Currículo",
         "buttons.viewProject": "Ver projeto",
@@ -74,6 +85,8 @@ export const translations = {
         "buttons.backToHome": "Voltar para Home",
         "buttons.github": "GitHub",
         "buttons.liveDemo": "Ver site",
+        "accessibility.skipToContent": "Pular para o conteúdo principal",
+        "accessibility.closeCertificateModal": "Fechar visualizador de certificado",
 
         "skills.title": "Tecnologias",
 
@@ -86,9 +99,12 @@ export const translations = {
         "system.focusValue": "Desenvolvimento Backend",
         "system.os": "SO:",
 
-        "projects.aurora.text": "Landing page responsiva construída com Bootstrap, com foco em interface, responsividade e organização de componentes.",
-        "projects.cipherpy.text": "Projeto de criptografia em Python com foco em lógica, modularização e desenvolvimento de algoritmos.",
-        "projects.githubFinder.text": "Projeto em JavaScript que consome a API do GitHub e exibe informações públicas de perfil.",
+        "projects.aurora.text":
+            "Landing page responsiva construída com Bootstrap, com foco em interface, responsividade e organização de componentes.",
+        "projects.cipherpy.text":
+            "Projeto de criptografia em Python com foco em lógica, modularização e desenvolvimento de algoritmos.",
+        "projects.githubFinder.text":
+            "Projeto em JavaScript que consome a API do GitHub e exibe informações públicas de perfil.",
 
         "projects.status.completed": "Status: Concluído",
         "projects.status.progress": "Status: Em desenvolvimento",
@@ -96,7 +112,8 @@ export const translations = {
         "projects.stack.python": "Stack: Python",
         "projects.stack.api": "Stack: API",
         "projects.year": "Ano: 2025",
-        "projectsArchive.intro": "Uma lista organizada de projetos combinando dados locais do portfólio com informações públicas dos repositórios no GitHub.",
+        "projectsArchive.intro":
+            "Uma lista organizada de projetos combinando dados locais do portfólio com informações públicas dos repositórios no GitHub.",
 
         "journey.computerScience": "Ciência da Computação",
         "journey.fullStackPython": "Full Stack Python",
@@ -105,12 +122,13 @@ export const translations = {
 
         "certificates.timtecPython.title": "Desenvolvimento com Python",
         "certificates.aluraSqlIntro.title": "Introdução ao SQL com MySQL",
-        "certificates.senaiLogic.title": "Lógica de Programação",
+        "certificates.aluraAiImmersion.title": "Imersão Engenharia de Software: Dev na Era da IA",
 
         "certificateModal.hours": "Horas",
         "certificateModal.date": "Data",
 
-        "certificatesArchive.intro": "Um arquivo organizado de cursos e certificados relacionados a programação, bancos de dados, desenvolvimento web e fundamentos de engenharia de software.",
+        "certificatesArchive.intro":
+            "Um arquivo organizado de cursos e certificados relacionados a programação, bancos de dados, desenvolvimento web e fundamentos de engenharia de software.",
         "certificatesArchive.year": "Ano",
         "certificatesArchive.institution": "Instituição",
         "certificatesArchive.topic": "Área / ferramenta",
@@ -120,6 +138,6 @@ export const translations = {
         "certificatesArchive.toConfirm": "A confirmar",
         "certificatesArchive.certificatesFound": "certificado(s) encontrado(s).",
         "certificatesArchive.viewCertificate": "Ver certificado",
-        "certificatesArchive.empty": "Nenhum certificado encontrado com os filtros selecionados."
-    }
+        "certificatesArchive.empty": "Nenhum certificado encontrado com os filtros selecionados.",
+    },
 };

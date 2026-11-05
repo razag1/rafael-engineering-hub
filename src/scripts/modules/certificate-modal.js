@@ -10,6 +10,15 @@ export function setupCertificateModal() {
     const zoomResetButton = modal?.querySelector("[data-certificate-zoom-reset]");
     const zoomInButton = modal?.querySelector("[data-certificate-zoom-in]");
     const viewport = modal?.querySelector("[data-certificate-viewport]");
+    const dialog = modal?.querySelector('[role="dialog"]');
+    const focusableSelector = [
+        "a[href]",
+        "button:not([disabled])",
+        "input:not([disabled])",
+        "select:not([disabled])",
+        "textarea:not([disabled])",
+        '[tabindex]:not([tabindex="-1"])',
+    ].join(",");
 
     const minZoom = 1;
     const maxZoom = 2.5;
@@ -20,6 +29,7 @@ export function setupCertificateModal() {
     let dragStartY = 0;
     let dragStartScrollLeft = 0;
     let dragStartScrollTop = 0;
+    let triggerElement = null;
 
     if (!modal || !modalImage || !modalIssuer || !modalName || !modalHours || !modalDate) {
         return;
@@ -74,9 +84,17 @@ export function setupCertificateModal() {
         modal.setAttribute("aria-hidden", "false");
 
         document.body.classList.add("modal-open");
+        triggerElement = button;
+
+        const firstFocusableElement = dialog?.querySelector(focusableSelector);
+        (firstFocusableElement || dialog)?.focus();
     }
 
     function closeModal() {
+        if (!modal.classList.contains("certificate-modal--open")) {
+            return;
+        }
+
         stopDragging();
         modal.classList.remove("certificate-modal--open");
         modal.setAttribute("aria-hidden", "true");
@@ -85,6 +103,44 @@ export function setupCertificateModal() {
         modalImage.alt = "";
 
         document.body.classList.remove("modal-open");
+
+        if (triggerElement?.isConnected) {
+            triggerElement.focus();
+        }
+
+        triggerElement = null;
+    }
+
+    function trapFocus(event) {
+        if (event.key !== "Tab" || !dialog) {
+            return;
+        }
+
+        const focusableElements = [...dialog.querySelectorAll(focusableSelector)].filter(
+            function (element) {
+                return (
+                    !element.hasAttribute("hidden") &&
+                    element.getAttribute("aria-hidden") !== "true"
+                );
+            },
+        );
+
+        if (focusableElements.length === 0) {
+            event.preventDefault();
+            dialog.focus();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements.at(-1);
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+        }
     }
 
     document.addEventListener("click", function (event) {
@@ -95,7 +151,6 @@ export function setupCertificateModal() {
         }
 
         openModal(button);
-        button.blur();
     });
 
     closeButtons.forEach(function (button) {
@@ -155,8 +210,16 @@ export function setupCertificateModal() {
     }
 
     document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && modal.classList.contains("certificate-modal--open")) {
-            closeModal();
+        if (!modal.classList.contains("certificate-modal--open")) {
+            return;
         }
+
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeModal();
+            return;
+        }
+
+        trapFocus(event);
     });
 }

@@ -34,7 +34,9 @@
         margin: 0;
         padding: 0 12px;
         list-style: none;
-        transition: max-height .3s ease, padding .3s ease;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
     }
 
     &--open {

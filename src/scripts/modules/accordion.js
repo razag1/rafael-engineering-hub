@@ -9,10 +9,7 @@ export function setupAccordion(cardSelector, openClass, headerSelector, iconSele
             return;
         }
 
-        button.setAttribute(
-            "aria-expanded",
-            card.classList.contains(openClass).toString()
-        );
+        button.setAttribute("aria-expanded", card.classList.contains(openClass).toString());
 
         button.addEventListener("click", function () {
             card.classList.toggle(openClass);

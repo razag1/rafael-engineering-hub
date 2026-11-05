@@ -1,6 +1,6 @@
 export function setupClickBlur() {
     const clickableElements = document.querySelectorAll(
-        ".btn, .window__button, .hub-toolbar__button"
+        ".btn, .window__button, .hub-toolbar__button",
     );
 
     clickableElements.forEach(function (element) {

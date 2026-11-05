@@ -20,6 +20,22 @@ img {
     max-width: 100%;
 }
 
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 1100;
+    transform: translateY(-150%);
+    padding: 8px 12px;
+    border: 2px solid var(--color-primary);
+    background: var(--color-surface);
+    color: var(--color-text);
+
+    &:focus {
+        transform: translateY(0);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

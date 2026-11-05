@@ -11,24 +11,34 @@ function applyLanguage(language) {
         }
     });
 
+    const labelledElements = document.querySelectorAll("[data-i18n-aria-label]");
+
+    labelledElements.forEach(function (element) {
+        const key = element.getAttribute("data-i18n-aria-label");
+
+        if (translations[language] && translations[language][key]) {
+            element.setAttribute("aria-label", translations[language][key]);
+        }
+    });
+
     const languageButton = document.querySelector("#language-toggle");
 
     if (languageButton) {
-        languageButton.textContent = language === "pt"
-            ? "language.ini: PT-BR"
-            : "language.ini: EN";
+        languageButton.textContent = language === "pt" ? "language.ini: PT-BR" : "language.ini: EN";
 
         languageButton.setAttribute(
             "aria-label",
-            language === "pt" ? "Alterar idioma" : "Change language"
+            language === "pt" ? "Alterar idioma" : "Change language",
         );
     }
 
     document.documentElement.lang = language === "pt" ? "pt-BR" : "en";
     localStorage.setItem("portfolioLanguage", language);
-    document.dispatchEvent(new CustomEvent("portfolio:language-change", {
-        detail: { language }
-    }));
+    document.dispatchEvent(
+        new CustomEvent("portfolio:language-change", {
+            detail: { language },
+        }),
+    );
 }
 
 export function setupLanguageToggle() {
