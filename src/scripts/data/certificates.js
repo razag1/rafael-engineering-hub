@@ -1,5 +1,14 @@
 export const certificates = [
     {
+        title: "Imersão Engenharia de Software: Dev na Era da IA",
+        issuer: "Alura + Google for Startups",
+        year: "2026",
+        completedAt: "04/11/2026",
+        hours: "4h",
+        topics: ["Software Engineering", "Artificial Intelligence"],
+        image: new URL("../../assets/certificates/alura-imersao-engenharia-software-ia.webp", import.meta.url).href
+    },
+    {
         title: "Desenvolvimento com Python",
         issuer: "TIM Tec",
         year: "2020",
