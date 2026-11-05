@@ -5,8 +5,8 @@ const cipherPyCover = new URL("../../assets/projects/cipherpy/preview.webp", imp
 
 const projectImages = {
     "aurora-cafe": new URL("../../assets/projects/aurora-cafe/preview.webp", import.meta.url).href,
-    "cipherpy": cipherPyCover,
-    "projeto-6": new URL("../../assets/projects/projeto-6/preview.png", import.meta.url).href
+    cipherpy: cipherPyCover,
+    "projeto-6": new URL("../../assets/projects/projeto-6/preview.png", import.meta.url).href,
 };
 
 const projectLabels = {
@@ -17,7 +17,7 @@ const projectLabels = {
         github: "GitHub",
         liveDemo: "Live Demo",
         publicStatus: "Public",
-        publicRepository: "Public GitHub repository."
+        publicRepository: "Public GitHub repository.",
     },
     pt: {
         status: "Status",
@@ -26,17 +26,17 @@ const projectLabels = {
         github: "GitHub",
         liveDemo: "Ver site",
         publicStatus: "Público",
-        publicRepository: "Repositório público no GitHub."
-    }
+        publicRepository: "Repositório público no GitHub.",
+    },
 };
 
 const projectTopicLabels = {
     pt: {
         "Responsive Layout": "Layout responsivo",
-        "Logic": "Lógica",
-        "Algorithms": "Algoritmos",
-        "Web Development": "Desenvolvimento web"
-    }
+        Logic: "Lógica",
+        Algorithms: "Algoritmos",
+        "Web Development": "Desenvolvimento web",
+    },
 };
 
 function getCurrentLanguage() {
@@ -79,8 +79,12 @@ function getTopicLabel(topic) {
 }
 
 function escapeHtml(value) {
-    return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 }
 
 function normalizeRepositoryName(name) {
@@ -103,23 +107,39 @@ function getSafeRepositoryUrl(project, repository) {
     }
 }
 
+function getSafeExternalUrl(value) {
+    if (!value) return "";
+
+    try {
+        const url = new URL(value);
+        return url.protocol === "https:" ? url.href : "";
+    } catch {
+        return "";
+    }
+}
+
 function getLocalProjects() {
-    return projects.map(function (project) {
-        return {
-            ...project,
-            image: projectImages[project.id] || cipherPyCover,
-            repositoryUrl: getFallbackRepositoryUrl(project)
-        };
-    }).sort(function (a, b) {
-        return a.order - b.order;
-    });
+    return projects
+        .map(function (project) {
+            return {
+                ...project,
+                image: projectImages[project.id] || cipherPyCover,
+                repositoryUrl: getFallbackRepositoryUrl(project),
+            };
+        })
+        .sort(function (a, b) {
+            return a.order - b.order;
+        });
 }
 
 function createGitHubProject(repository, order) {
     const language = repository.language ? [repository.language] : [];
-    const topics = Array.isArray(repository.topics) && repository.topics.length
-        ? repository.topics
-        : language.length ? language : ["GitHub"];
+    const topics =
+        Array.isArray(repository.topics) && repository.topics.length
+            ? repository.topics
+            : language.length
+              ? language
+              : ["GitHub"];
     const date = repository.created_at || repository.updated_at || "";
 
     return {
@@ -130,62 +150,77 @@ function createGitHubProject(repository, order) {
         title: repository.name.replaceAll(/[-_]+/g, " "),
         status: {
             en: projectLabels.en.publicStatus,
-            pt: projectLabels.pt.publicStatus
+            pt: projectLabels.pt.publicStatus,
         },
         year: date.slice(0, 4) || "—",
         stack: language.length ? language : ["Repository"],
         topics,
-        description: repository.description ? {
-            en: repository.description,
-            pt: repository.description
-        } : {
-            en: projectLabels.en.publicRepository,
-            pt: projectLabels.pt.publicRepository
-        },
+        description: repository.description
+            ? {
+                  en: repository.description,
+                  pt: repository.description,
+              }
+            : {
+                  en: projectLabels.en.publicRepository,
+                  pt: projectLabels.pt.publicRepository,
+              },
         image: cipherPyCover,
         demoUrl: "",
-        repositoryUrl: getSafeRepositoryUrl({ repo: repository.name }, repository)
+        repositoryUrl: getSafeRepositoryUrl({ repo: repository.name }, repository),
     };
 }
 
 export async function getProjectsWithGitHubData(fetchImplementation = fetch) {
     const localProjects = getLocalProjects();
     const controller = new AbortController();
-    const timeoutId = setTimeout(function () { controller.abort(); }, 5000);
+    const timeoutId = setTimeout(function () {
+        controller.abort();
+    }, 5000);
 
     try {
         const response = await fetchImplementation(githubEndpoint, {
             headers: { Accept: "application/vnd.github+json" },
-            signal: controller.signal
+            signal: controller.signal,
         });
         if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
 
         const repositories = await response.json();
-        if (!Array.isArray(repositories)) throw new Error("GitHub API returned an unexpected response");
+        if (!Array.isArray(repositories))
+            throw new Error("GitHub API returned an unexpected response");
 
-        const repositoriesByName = new Map(repositories.map(function (repository) {
-            return [normalizeRepositoryName(repository.name), repository];
-        }));
-        const curatedNames = new Set(localProjects.map(function (project) {
-            return normalizeRepositoryName(project.repo);
-        }));
+        const validRepositories = repositories.filter(function (repository) {
+            return repository && typeof repository.name === "string" && repository.name.trim();
+        });
+        const repositoriesByName = new Map(
+            validRepositories.map(function (repository) {
+                return [normalizeRepositoryName(repository.name), repository];
+            }),
+        );
+        const curatedNames = new Set(
+            localProjects.map(function (project) {
+                return normalizeRepositoryName(project.repo);
+            }),
+        );
 
         const curatedProjects = localProjects.map(function (project) {
             const repository = repositoriesByName.get(normalizeRepositoryName(project.repo));
             return {
                 ...project,
                 githubRepository: repository,
-                repositoryUrl: getSafeRepositoryUrl(project, repository)
+                repositoryUrl: getSafeRepositoryUrl(project, repository),
             };
         });
 
-        const extraProjects = repositories.filter(function (repository) {
-            return !curatedNames.has(normalizeRepositoryName(repository.name));
-        }).sort(function (a, b) {
-            return a.name.localeCompare(b.name);
-        }).map(function (repository, index) {
-            return createGitHubProject(repository, curatedProjects.length + index + 1);
-        });
+        const extraProjects = validRepositories
+            .filter(function (repository) {
+                return !curatedNames.has(normalizeRepositoryName(repository.name));
+            })
+            .sort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            })
+            .map(function (repository, index) {
+                return createGitHubProject(repository, curatedProjects.length + index + 1);
+            });
 
         return [...curatedProjects, ...extraProjects];
     } catch {
@@ -199,10 +234,13 @@ function createProjectCard(project, variant) {
     const labels = getLabels();
     const article = document.createElement("article");
     article.className = `project-card project-card--${variant} project-card--open`;
-    const demoAction = project.demoUrl ? `
-        <a class="btn btn-primary" href="${escapeHtml(project.demoUrl)}" target="_blank" rel="noopener noreferrer">
+    const demoUrl = getSafeExternalUrl(project.demoUrl);
+    const demoAction = demoUrl
+        ? `
+        <a class="btn btn-primary" href="${escapeHtml(demoUrl)}" target="_blank" rel="noopener noreferrer">
             ${escapeHtml(labels.liveDemo)}
-        </a>` : "";
+        </a>`
+        : "";
 
     article.innerHTML = `
         <button class="project-card__header" type="button" aria-expanded="true">
@@ -224,7 +262,11 @@ function createProjectCard(project, variant) {
                 </div>
                 <div class="project-card__footer">
                     <div class="project-card__tags">
-                        ${project.topics.map(function (topic) { return `<span>${escapeHtml(getTopicLabel(topic))}</span>`; }).join("")}
+                        ${project.topics
+                            .map(function (topic) {
+                                return `<span>${escapeHtml(getTopicLabel(topic))}</span>`;
+                            })
+                            .join("")}
                     </div>
                     <div class="project-card__actions">
                         <a class="btn btn-outline-primary" href="${escapeHtml(project.repositoryUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(labels.github)}</a>
@@ -249,12 +291,20 @@ function createProjectCard(project, variant) {
 
 function renderProjects(container, items, variant) {
     container.innerHTML = "";
-    items.forEach(function (project) { container.appendChild(createProjectCard(project, variant)); });
+    items.forEach(function (project) {
+        container.appendChild(createProjectCard(project, variant));
+    });
 }
 
 function getFeaturedProjects(items) {
-    return items.filter(function (project) { return project.featured; })
-        .sort(function (a, b) { return a.order - b.order; }).slice(0, 3);
+    return items
+        .filter(function (project) {
+            return project.featured;
+        })
+        .sort(function (a, b) {
+            return a.order - b.order;
+        })
+        .slice(0, 3);
 }
 
 export async function setupProjectArchive() {
@@ -266,7 +316,8 @@ export async function setupProjectArchive() {
 
     function renderProjectsAgain() {
         if (archiveList) renderProjects(archiveList, currentProjects, "grid");
-        if (featuredList) renderProjects(featuredList, getFeaturedProjects(currentProjects), "featured");
+        if (featuredList)
+            renderProjects(featuredList, getFeaturedProjects(currentProjects), "featured");
     }
 
     renderProjectsAgain();

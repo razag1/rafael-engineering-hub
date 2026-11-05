@@ -1,25 +1,55 @@
 {
-  "name": "rafael-engineering-hub",
-  "version": "1.0.0",
-  "description": "Personal engineering hub featuring projects, certifications, technical skills, and a continuous learning journey in Software Engineering.",
-  "scripts": {
-    "dev": "parcel src/index.html src/projetos.html src/certificados.html --no-cache",
-    "build": "parcel build src/index.html src/projetos.html src/certificados.html --no-cache",
-    "optimize:images": "node tools/optimize-images.js",
-    "gulp": "gulp"
-  },
-  "keywords": [],
-  "author": "Rafael_Zaparolli",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.16.4",
-    "gulp": "^5.0.1",
-    "parcel": "^2.16.4",
-    "sharp": "^0.35.1"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1"
-  }
+    "name": "rafael-engineering-hub",
+    "version": "1.0.0",
+    "description": "A retro-inspired personal portfolio showcasing Software Engineering, backend development, projects, certifications, and continuous learning.",
+    "private": true,
+    "scripts": {
+        "dev": "parcel src/index.html src/projetos.html src/certificados.html --no-cache",
+        "build": "parcel build src/index.html src/projetos.html src/certificados.html --no-cache",
+        "optimize:images": "node tools/optimize-images.js",
+        "lint": "eslint .",
+        "format": "prettier --check \"src/**/*.{html,scss,js}\" \"tools/**/*.js\" \"tests/**/*.js\" \"*.{json,md}\" \".github/**/*.yml\"",
+        "format:write": "prettier --write \"src/**/*.{html,scss,js}\" \"tools/**/*.js\" \"tests/**/*.js\" \"*.{json,md}\" \".github/**/*.yml\"",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "check": "npm run lint && npm run format && npm test && npm run build"
+    },
+    "keywords": [
+        "portfolio",
+        "software-engineering",
+        "backend-development",
+        "javascript",
+        "scss"
+    ],
+    "author": "Rafael Zaparolli",
+    "license": "ISC",
+    "type": "commonjs",
+    "engines": {
+        "node": "24.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/razag1/rafael-engineering-hub.git"
+    },
+    "overrides": {
+        "@eslint/config-array": {
+            "minimatch": "^11.0.1"
+        },
+        "eslint": {
+            "minimatch": "^11.0.1"
+        }
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@parcel/transformer-sass": "^2.16.4",
+        "eslint": "^10.14.0",
+        "jsdom": "^30.1.3",
+        "parcel": "^2.16.4",
+        "prettier": "^3.9.10",
+        "sharp": "^0.35.5",
+        "vitest": "^5.1.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.8"
+    }
 }

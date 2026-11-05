@@ -3,18 +3,18 @@
 @use "certificate-filters";
 @use "page-actions";
 @use "projects-archive";
-
-@import "bootstrap/scss/bootstrap";
-
-@import "variables";
-@import "base";
-@import "page";
-@import "window";
-@import "about";
-@import "buttons";
-@import "skills";
-@import "system-card";
-@import "journey";
-@import "projects";
-@import "certificates";
-@import "responsive";
+// The explicit relative path keeps Dart Sass on the module system while
+// remaining compatible with Parcel's resolver.
+@use "../../node_modules/bootstrap/scss/bootstrap";
+@use "variables";
+@use "base";
+@use "page";
+@use "window";
+@use "about";
+@use "buttons";
+@use "skills";
+@use "system-card";
+@use "journey";
+@use "projects";
+@use "certificates";
+@use "responsive";
