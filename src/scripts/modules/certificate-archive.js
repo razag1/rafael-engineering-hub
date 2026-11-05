@@ -10,7 +10,9 @@ const topicLabels = {
         "IT Fundamentals": "IT Fundamentals",
         "Design": "Design",
         "Ethics": "Ethics",
-        "Automation": "Automation"
+        "Automation": "Automation",
+        "Software Engineering": "Software Engineering",
+        "Artificial Intelligence": "Artificial Intelligence"
     },
     pt: {
         "Python": "Python",
@@ -20,7 +22,9 @@ const topicLabels = {
         "IT Fundamentals": "Fundamentos de TI",
         "Design": "Design",
         "Ethics": "Ética",
-        "Automation": "Automação"
+        "Automation": "Automação",
+        "Software Engineering": "Engenharia de Software",
+        "Artificial Intelligence": "Inteligência Artificial"
     }
 };
 
